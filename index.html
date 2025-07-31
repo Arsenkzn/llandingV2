@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HANGMAN</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div id="lobby" class="screen visible">
+        <h1>HANGMAN</h1>
+        <div class="rooms-container">
+          <h2>Hall of Rooms</h2>
+          <div class="rooms-list" id="roomsList"></div>
+        </div>
+      </div>
+
+      <div id="game" class="screen">
+        <div class="game-header">
+          <h2>HANGMAN</h2>
+          <div class="category" id="category">CATEGORY:</div>
+        </div>
+
+        <div class="game-container">
+          <div class="hangman-container">
+            <pre id="hangmanDrawing"></pre>
+          </div>
+
+          <div class="word-display" id="wordDisplay"></div>
+
+          <div class="keyboard" id="keyboard"></div>
+
+          <div class="game-status" id="gameStatus"></div>
+
+          <button class="play-again" id="playAgain">Play Again</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="scrypt.js"></script>
+  </body>
+</html>

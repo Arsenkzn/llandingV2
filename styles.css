@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  background-color: white;
+  color: black;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.screen {
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.screen.visible {
+  display: block;
+}
+
+h1,
+h2 {
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.rooms-container {
+  margin-top: 30px;
+}
+
+.rooms-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.room {
+  padding: 15px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.room.available {
+  background-color: white;
+  color: black;
+}
+
+.room.unavailable {
+  background-color: #f0f0f0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.game-header {
+  margin-bottom: 30px;
+}
+
+.hangman-container {
+  margin: 20px auto;
+  font-size: 18px;
+  line-height: 1.2;
+  min-height: 120px;
+}
+
+.word-display {
+  font-size: 32px;
+  letter-spacing: 5px;
+  margin: 20px 0;
+  min-height: 40px;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.key {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.key.used {
+  background-color: #f0f0f0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.game-status {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.play-again {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.play-again:hover {
+  background-color: black;
+  color: white;
+}
