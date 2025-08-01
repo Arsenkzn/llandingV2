@@ -6,10 +6,13 @@
 }
 
 body {
-  background-color: white;
-  color: black;
-  line-height: 1.6;
-  padding: 20px;
+  background-image: url("./img/background.png"); /* путь к изображению */
+  background-repeat: repeat; /* повторяется по X и Y */
+  background-size: auto; /* или можно: 'contain' / 'cover' — см. ниже */
+  background-color: #ffffff; /* на всякий случай — белый фон */
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* базовый шрифт */
 }
 
 .screen {
@@ -35,26 +38,56 @@ h2 {
 
 .rooms-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .room {
-  padding: 15px;
-  border: 1px solid black;
+  background-image: url("./img/door.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 220px;
+  position: relative;
   cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .room.available {
-  background-color: white;
-  color: black;
+  background-image: url("./img/openDoor.png");
+  filter: none;
 }
 
 .room.unavailable {
-  background-color: #f0f0f0;
-  color: #888;
+  filter: grayscale(80%) brightness(70%);
   cursor: not-allowed;
+}
+
+.room-number {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  text-shadow: 1px 1px 2px white;
+}
+
+.room-status {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: black;
+  text-shadow: 1px 1px 2px white;
+}
+
+.room:hover:not(.unavailable) {
+  transform: scale(1.05);
 }
 
 .game-header {
@@ -105,6 +138,10 @@ h2 {
   font-size: 18px;
 }
 
+.category {
+  margin-top: 20px;
+}
+
 .play-again {
   padding: 10px 20px;
   background-color: white;
@@ -117,4 +154,42 @@ h2 {
 .play-again:hover {
   background-color: black;
   color: white;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #000; /* Добавим разделитель */
+  padding-bottom: 10px;
+}
+
+.external-link {
+  display: inline-block;
+  transition: all 0.2s ease;
+  border: 2px solid #000;
+  border-radius: 4px;
+  padding: 5px;
+  background: white;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+}
+
+.external-btn {
+  width: 35px; /* Подстройте под размер вашего изображения */
+  height: auto;
+  display: block; /* Убираем лишнее пространство вокруг изображения */
+  cursor: pointer;
+}
+
+.external-link:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+  background: #f0f0f0;
+}
+
+.external-link:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
