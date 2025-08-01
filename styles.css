@@ -108,6 +108,16 @@ h2 {
   min-height: 40px;
 }
 
+.hangman-container {
+  margin: 0px 100px 0px 310px;
+  font-size: 18px;
+  line-height: 1.2;
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+}
+
 .keyboard {
   display: flex;
   flex-wrap: wrap;
@@ -192,4 +202,57 @@ h2 {
 .external-link:active {
   transform: translate(2px, 2px);
   box-shadow: none;
+}
+
+@media (min-width: 1200px) {
+  .screen {
+    max-width: 1000px;
+  }
+
+  .hangman-container {
+    font-size: 24px;
+  }
+
+  .word-display {
+    font-size: 40px;
+  }
+
+  .keyboard {
+    max-width: 700px;
+  }
+
+  .key {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .game-status,
+  .category {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .screen {
+    max-width: 1200px;
+  }
+
+  .hangman-container {
+    font-size: 28px;
+  }
+
+  .word-display {
+    font-size: 48px;
+  }
+
+  .keyboard {
+    max-width: 800px;
+  }
+
+  .key {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
 }
