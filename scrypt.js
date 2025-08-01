@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     maxWrongGuesses: 6,
     gameOver: false,
     winner: null,
+    availableRooms: [],
   };
 
   // Words database
@@ -96,29 +97,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initialize the game
   function init() {
+    generateRandomAvailableRooms();
     renderLobby();
     setupEventListeners();
+  }
+
+  // Generate 2 random available rooms
+  function generateRandomAvailableRooms() {
+    const totalRooms = 8;
+    state.availableRooms = [];
+
+    // Generate 2 unique random room numbers
+    while (state.availableRooms.length < 2) {
+      const roomNumber = Math.floor(Math.random() * totalRooms) + 1;
+      if (!state.availableRooms.includes(roomNumber)) {
+        state.availableRooms.push(roomNumber);
+      }
+    }
   }
 
   // Render the lobby with rooms
   function renderLobby() {
     roomsList.innerHTML = "";
 
-    // Create 12 rooms, with 2 available
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 8; i++) {
       const room = document.createElement("div");
       room.className = "room";
-      room.textContent = `Room ${i.toString().padStart(2, "0")}`;
 
-      // Make rooms 3 and 7 available
-      if (i === 3 || i === 7) {
+      if (state.availableRooms.includes(i)) {
         room.classList.add("available");
         room.addEventListener("click", () => startGame());
       } else {
         room.classList.add("unavailable");
-        const statuses = ["In Game", "Locked", "Full"];
-        const status = statuses[Math.floor(Math.random() * statuses.length)];
-        room.textContent += ` (${status})`;
+      }
+
+      if (!state.availableRooms.includes(i)) {
+        const roomStatus = document.createElement("div");
+        roomStatus.className = "room-status";
+        const statuses = [];
+        roomStatus.textContent =
+          statuses[Math.floor(Math.random() * statuses.length)];
+        room.appendChild(roomStatus);
       }
 
       roomsList.appendChild(room);
@@ -129,6 +148,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function setupEventListeners() {
     playAgainBtn.addEventListener("click", () => {
       resetGame();
+      generateRandomAvailableRooms();
+      renderLobby();
       switchScreen("lobby");
     });
   }
