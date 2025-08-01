@@ -6,13 +6,13 @@
 }
 
 body {
-  background-image: url("./img/background.png"); /* путь к изображению */
-  background-repeat: repeat; /* повторяется по X и Y */
-  background-size: auto; /* или можно: 'contain' / 'cover' — см. ниже */
-  background-color: #ffffff; /* на всякий случай — белый фон */
+  background-image: url("./img/background.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
-  font-family: sans-serif; /* базовый шрифт */
+  font-family: sans-serif;
 }
 
 .screen {
@@ -161,7 +161,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  border-bottom: 1px solid #000; /* Добавим разделитель */
+  border-bottom: 1px solid #000;
   padding-bottom: 10px;
 }
 
@@ -177,9 +177,9 @@ h2 {
 }
 
 .external-btn {
-  width: 35px; /* Подстройте под размер вашего изображения */
+  width: 35px;
   height: auto;
-  display: block; /* Убираем лишнее пространство вокруг изображения */
+  display: block;
   cursor: pointer;
 }
 
